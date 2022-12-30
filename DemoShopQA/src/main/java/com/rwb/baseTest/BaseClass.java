@@ -10,8 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import com.rwb.actionDrivers.Actionable;
+import org.testng.annotations.BeforeTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,6 +19,7 @@ public class BaseClass {
 	public static Properties prop;
 	public static WebDriver driver;
 
+	@BeforeTest
 	public void loadConfig() {
 		try {
 			Properties prop=new Properties();
