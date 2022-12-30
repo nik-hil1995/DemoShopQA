@@ -24,12 +24,16 @@ public class IndexPage extends BaseClass {
 	@FindBy(xpath = "(//img[@class='custom-logo'])[1]")
 	WebElement CustomLogo;
 
+	@FindBy(css = ".woocommerce-store-notice__dismiss-link")
+	WebElement dismissbtn;
+
 	public IndexPage() {
 		PageFactory.initElements(driver, this);
 	}
 
 	public LoginPage clickTosignIn() {
-		myAccountbtn.click();
+		act.waitUntilClickable(driver, dismissbtn);
+		act.clickToElement(driver, myAccountbtn);
 		return new LoginPage();
 	}
 

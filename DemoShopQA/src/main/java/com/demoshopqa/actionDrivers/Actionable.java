@@ -12,9 +12,16 @@ import com.demoshopqa.baseTest.BaseClass;
 
 public class Actionable extends BaseClass {
 
+	public WebDriverWait wait;
+
 	public void clickToElement(WebDriver driver, WebElement ele) {
 		Actions act = new Actions(driver);
 		act.moveToElement(ele).click().build().perform();
+	}
+
+	public void waitUntilClickable(WebDriver driver, WebElement target) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(target)).click();
 	}
 
 	public boolean findElement(WebDriver driver, WebElement ele) {
@@ -57,8 +64,8 @@ public class Actionable extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
-	public void explicitwait(WebDriver driver, WebElement Ele,Duration timeout) {
-		WebDriverWait wait = new WebDriverWait(driver, timeout);
+	public void explicitwait(WebDriver driver, WebElement Ele, Duration timeout) {
+		wait = new WebDriverWait(driver, timeout);
 		wait.until(ExpectedConditions.visibilityOf(Ele));
 	}
 

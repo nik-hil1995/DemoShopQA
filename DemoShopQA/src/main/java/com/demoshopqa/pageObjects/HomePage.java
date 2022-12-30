@@ -47,4 +47,8 @@ public class HomePage extends BaseClass {
 		return flag;
 	}
 
+	public String getCurrURL() {
+		return driver.getCurrentUrl();
+	}
+
 }

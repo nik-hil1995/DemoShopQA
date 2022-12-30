@@ -46,7 +46,7 @@ public class BaseClass {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
-		else if (Browser.contains("edgedriver")) {
+		else if (Browser.contains("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 

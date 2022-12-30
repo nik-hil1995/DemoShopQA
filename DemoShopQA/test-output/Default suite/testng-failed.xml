@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="IndexPageTest">
+      <class name="com.demoshopqa.tests.LoginPageTest">
         <methods>
-          <include name="loadConfig"/>
-          <include name="verifytitle"/>
           <include name="setup"/>
+          <include name="verifyLogin"/>
           <include name="teardonw"/>
+          <include name="loadConfig"/>
         </methods>
-      </class> <!-- IndexPageTest -->
+      </class> <!-- com.demoshopqa.tests.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -23,6 +23,7 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath = "//a[contains(text(),'Lost your password?')]")
 	WebElement lostPassword;
 
+
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
