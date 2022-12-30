@@ -1,10 +1,10 @@
-package com.rwb.pageObjects;
+package com.demoshopqa.pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.rwb.baseTest.BaseClass;
+import com.demoshopqa.baseTest.BaseClass;
 
 public class OrderConfirmationPage extends BaseClass {
 

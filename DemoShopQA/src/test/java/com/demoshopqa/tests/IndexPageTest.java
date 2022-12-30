@@ -1,10 +1,11 @@
+package com.demoshopqa.tests;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.rwb.baseTest.BaseClass;
-import com.rwb.pageObjects.IndexPage;
+import com.demoshopqa.baseTest.BaseClass;
+import com.demoshopqa.pageObjects.IndexPage;
 
 public class IndexPageTest extends BaseClass {
    

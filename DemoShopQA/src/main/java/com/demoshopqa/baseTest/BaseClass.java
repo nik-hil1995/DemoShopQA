@@ -1,4 +1,4 @@
-package com.rwb.baseTest;
+package com.demoshopqa.baseTest;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

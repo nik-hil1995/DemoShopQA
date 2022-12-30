@@ -1,4 +1,4 @@
-package com.rwb.pageObjects;
+package com.demoshopqa.pageObjects;
 
 public class Rough {
 
