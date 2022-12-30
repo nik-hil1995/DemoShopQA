@@ -99,6 +99,4 @@ public class CheckoutPage extends BaseClass {
 		}
 		return new OrderConfirmationPage();
 	}
-
-
 }

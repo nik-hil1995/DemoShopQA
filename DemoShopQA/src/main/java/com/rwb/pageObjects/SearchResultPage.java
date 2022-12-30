@@ -35,7 +35,7 @@ public class SearchResultPage extends BaseClass {
 	
 	
 	public void validateProduct(String productName) {
-      WebElement prod= productTitle.stream().filter(product->product.findElement(By.xpath("//div[@class='noo-product-inner']/h3/a"))
+		productTitle.stream().filter(product -> product.findElement(By.xpath("//div[@class='noo-product-inner']/h3/a"))
 				.getText().equals(productName)).findFirst().orElse(null);
 
 	}

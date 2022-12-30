@@ -18,4 +18,21 @@ public class OrderConfirmationPage extends BaseClass {
 	@FindBy(xpath = "//li[@class='order']//strong")
 	WebElement orderId;
 
+	public void orderConfirmation(String Message1) {
+		String Message = SuccessMesg.getText();
+		if (Message.equalsIgnoreCase(Message1)) {
+			System.out.println("Success");
+		} else {
+			System.out.println("Failue");
+		}
+	}
+
+	public void verifyOrderID(String actualOrderID) {
+		if (orderId.getText().equalsIgnoreCase(actualOrderID)) {
+			System.out.println("Success");
+		} else {
+			System.out.println("failure");
+		}
+	}
+
 }

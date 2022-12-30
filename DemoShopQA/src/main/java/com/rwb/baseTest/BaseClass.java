@@ -22,7 +22,7 @@ public class BaseClass {
 	@BeforeTest
 	public void loadConfig() {
 		try {
-			Properties prop=new Properties();
+			prop = new Properties();
 			System.out.println("super constructot invoked");
 	        FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"\\Configuration\\Config.properties");	
 	        prop.load(file);
@@ -37,15 +37,17 @@ public class BaseClass {
 	}
 	
 	public void LaunchApp() {
-		WebDriverManager.chromedriver().setup();
 		String Browser = prop.getProperty("browser");
 		if (Browser.contains("chrome")) {
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		}
 		else if (Browser.contains("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
 		else if (Browser.contains("edgedriver")) {
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 
 		}
@@ -54,6 +56,7 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		driver.get(prop.getProperty("URL"));
+
 
 	}
 	
