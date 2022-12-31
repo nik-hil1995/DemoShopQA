@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.demoshopqa.tests.HomePageTest">
+      <class name="com.demoshopqa.tests.AddToCartTest">
         <methods>
-          <include name="verifytheorder"/>
-          <include name="teardonw"/>
+          <include name="VerifyAddtocart"/>
           <include name="loadConfig"/>
+          <include name="teardonw"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.demoshopqa.tests.HomePageTest -->
+      </class> <!-- com.demoshopqa.tests.AddToCartTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

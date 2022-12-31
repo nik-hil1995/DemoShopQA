@@ -27,6 +27,9 @@ public class IndexPage extends BaseClass {
 	@FindBy(css = ".woocommerce-store-notice__dismiss-link")
 	WebElement dismissbtn;
 
+	@FindBy(css = ".form-control")
+	WebElement searchTypeBox;
+
 	public IndexPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -46,8 +49,9 @@ public class IndexPage extends BaseClass {
 	}
 
 	public SearchResultPage searchProducts(String productName) {
-		act.type(searchBar, productName);
-		searchBar.sendKeys(Keys.ENTER);
+		searchBar.click();
+		searchTypeBox.sendKeys(productName);
+		searchTypeBox.sendKeys(Keys.ENTER);
 		return new SearchResultPage();
 
 	}

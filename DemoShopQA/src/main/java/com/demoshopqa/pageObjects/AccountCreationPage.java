@@ -24,11 +24,12 @@ public class AccountCreationPage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void newRegister(String user_Name, String user_email, String user_pass) {
+	public String newRegister(String user_Name, String user_email, String user_pass) {
 		usernameReg.sendKeys(user_Name);
 		email_reg.sendKeys(user_email);
 		password_reg.sendKeys(user_pass);
 		registerBtn.click();
+		return driver.getCurrentUrl();
 	}
 
 }

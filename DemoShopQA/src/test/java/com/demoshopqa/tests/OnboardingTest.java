@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.demoshopqa.tests;
 
 import org.testng.Assert;
@@ -9,19 +6,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoshopqa.baseTest.BaseClass;
-import com.demoshopqa.pageObjects.HomePage;
+import com.demoshopqa.pageObjects.AccountCreationPage;
 import com.demoshopqa.pageObjects.IndexPage;
 import com.demoshopqa.pageObjects.LoginPage;
 
-/**
- * @author NIkhil Kumar
- *
- */
-public class LoginPageTest extends BaseClass {
+public class OnboardingTest extends BaseClass {
 
 	IndexPage indexpage;
-	HomePage homepage;
 	LoginPage loginpage;
+	AccountCreationPage accountcreation;
 
 	@BeforeMethod
 	public void setup() {
@@ -33,13 +26,15 @@ public class LoginPageTest extends BaseClass {
 		driver.quit();
 	}
 
-
 	@Test
-	public void verifyLogin() {
+	public void verifyNewOnboarding() {
 		indexpage = new IndexPage();
-		loginpage = indexpage.clickTosignIn();
-		homepage = loginpage.loginToApp(prop.getProperty("UserEmail"), prop.getProperty("Password"));
-		Assert.assertEquals(homepage.getCurrURL(), prop.getProperty("homepageurl"));
+		indexpage.clickTosignIn();
+		accountcreation = new AccountCreationPage();
+		String actualURL = accountcreation.newRegister(prop.getProperty("user_name"),
+				prop.getProperty("user_email_new"),
+				prop.getProperty("Password"));
+		Assert.assertEquals(actualURL, prop.getProperty("homepageurl"));
 	}
 
 }

@@ -26,15 +26,26 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//button[@name='save_account_details']")
 	WebElement savebtn;
 
+	@FindBy(xpath = "//a[contains(text(),'Addresses')]")
+	WebElement address;
+
+	@FindBy(xpath = "//h3[contains(text(),'Billing address')]")
+	WebElement billingAddress;
+
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void updateAccountdetails(String updatedName) {
-		account.click();
-		displayName.sendKeys(updatedName);
-		savebtn.click();
+	public boolean vaidateAddress() {
+		boolean flag = false;
+		address.click();
+		if (billingAddress.isDisplayed()) {
+			flag = true;
 
+		} else {
+			flag = false;
+		}
+		return flag;
 	}
 
 	public boolean validateOrder() {
@@ -51,5 +62,6 @@ public class HomePage extends BaseClass {
 	public String getCurrURL() {
 		return driver.getCurrentUrl();
 	}
+
 
 }

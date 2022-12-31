@@ -23,7 +23,7 @@ public class BaseClass {
 	public void loadConfig() {
 		try {
 			prop = new Properties();
-			System.out.println("super constructot invoked");
+			System.out.println("super constructor invoked");
 	        FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"\\Configuration\\Config.properties");	
 	        prop.load(file);
 			System.out.println("driver: " + driver);
@@ -54,7 +54,7 @@ public class BaseClass {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		// driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.get(prop.getProperty("URL"));
 
 

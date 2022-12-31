@@ -29,22 +29,28 @@ public class SearchResultPage extends BaseClass {
 	WebElement orderby_filter;
 
 	@FindBy(xpath = "//div[@class='noo-product-inner']")
-	List<WebElement> productTitle;
+	List<WebElement> products;
+
+	@FindBy(xpath = "//div[@class='noo-product-inner']//h3")
+	WebElement productTitle;
 
 	
 	
 	
-	public void validateProduct(String productName) {
-		productTitle.stream().filter(product -> product.findElement(By.xpath("//div[@class='noo-product-inner']/h3/a"))
+	public WebElement isProductAvailable(String productName) {
+		return products.stream()
+				.filter(product -> product.findElement(By.xpath("//div[@class='noo-product-inner']//h3"))
 				.getText().equals(productName)).findFirst().orElse(null);
+
 
 	}
 
-	public AddToCartPage addProduct(String producttoadd) {
-		WebElement prod= productTitle.stream().filter(product->product.findElement(By.xpath("//div[@class='noo-product-inner']/h3/a"))
+	public ProductPage addProduct(String producttoadd) {
+		products.stream()
+				.filter(product -> product.findElement(By.xpath("//div[@class='noo-product-inner']//h3"))
 				.getText().equals(producttoadd)).findFirst().orElse(null);
-		prod.click();
-		return new AddToCartPage();
+		productTitle.click();
+		return new ProductPage();
 	}
 
 

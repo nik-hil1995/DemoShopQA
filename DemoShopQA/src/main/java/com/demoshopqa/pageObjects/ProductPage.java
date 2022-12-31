@@ -2,9 +2,15 @@ package com.demoshopqa.pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddToCartPage {
+import com.demoshopqa.actionDrivers.Actionable;
+import com.demoshopqa.baseTest.BaseClass;
+
+public class ProductPage extends BaseClass {
+
+	Actionable act = new Actionable();
 
 	@FindBy(css = "#pa_color")
 	WebElement coloroption;
@@ -21,14 +27,19 @@ public class AddToCartPage {
 	@FindBy(css = ".cart-button")
 	WebElement cartBtn;
 
-	public CartPage addProductToCart(String color, String size) {
+	public ProductPage() {
+		PageFactory.initElements(driver, this);
+	}
+
+	public CartPage addProductToCart(String color, String size) throws InterruptedException {
+		Thread.sleep(5000);
 		Select select1 = new Select(coloroption);
 		select1.selectByValue(color);
 		Select select2 = new Select(sizeoption);
-		select2.deselectByValue(size);
+		select2.selectByValue(size);
 		QtyIncrease.click();
 		addToCartBtn.click();
-		cartBtn.click();
+		act.clickToElement(driver, cartBtn);
 		return new CartPage();
 	}
 

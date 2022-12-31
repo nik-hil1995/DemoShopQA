@@ -41,9 +41,17 @@ public class HomePageTest extends BaseClass {
 		boolean result = homepage.validateOrder();
 		Assert.assertTrue(result);
 	}
-	
-	
+
 	@Test
-	public void  
+	public void verifythaddress() {
+		indexpage = new IndexPage();
+		LoginPage loginpage = indexpage.clickTosignIn();
+		homepage = loginpage.loginToApp(prop.getProperty("UserEmail"), prop.getProperty("Password"));
+		boolean address = homepage.vaidateAddress();
+		Assert.assertTrue(address);
+	}
+	
+
+
 
 }

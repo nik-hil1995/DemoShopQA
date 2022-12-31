@@ -3,25 +3,24 @@
  */
 package com.demoshopqa.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoshopqa.baseTest.BaseClass;
-import com.demoshopqa.pageObjects.HomePage;
 import com.demoshopqa.pageObjects.IndexPage;
-import com.demoshopqa.pageObjects.LoginPage;
+import com.demoshopqa.pageObjects.ProductPage;
+import com.demoshopqa.pageObjects.SearchResultPage;
 
 /**
  * @author NIkhil Kumar
  *
  */
-public class LoginPageTest extends BaseClass {
+public class AddToCartTest extends BaseClass {
 
 	IndexPage indexpage;
-	HomePage homepage;
-	LoginPage loginpage;
+	SearchResultPage searchresultpage;
+	ProductPage productpage;
 
 	@BeforeMethod
 	public void setup() {
@@ -30,16 +29,19 @@ public class LoginPageTest extends BaseClass {
 
 	@AfterMethod
 	public void teardonw() {
+
 		driver.quit();
 	}
 
-
 	@Test
-	public void verifyLogin() {
+	public void VerifyAddtocart() throws InterruptedException {
 		indexpage = new IndexPage();
-		loginpage = indexpage.clickTosignIn();
-		homepage = loginpage.loginToApp(prop.getProperty("UserEmail"), prop.getProperty("Password"));
-		Assert.assertEquals(homepage.getCurrURL(), prop.getProperty("homepageurl"));
+		searchresultpage = indexpage.searchProducts("shirt");
+		productpage = searchresultpage.addProduct(prop.getProperty("product_Name"));
+		productpage.addProductToCart("pink", "36");
+		
+
+
 	}
 
 }
