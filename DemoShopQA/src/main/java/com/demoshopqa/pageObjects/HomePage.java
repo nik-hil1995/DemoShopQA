@@ -39,6 +39,7 @@ public class HomePage extends BaseClass {
 
 	public boolean validateOrder() {
 		boolean flag = false;
+		orders.click();
 		if (orderid.isDisplayed()) {
 			flag = true;
 		} else {
