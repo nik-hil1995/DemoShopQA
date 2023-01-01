@@ -23,12 +23,15 @@ public class CartPage extends BaseClass {
 
 
 
-	public void pricevalidation() {
-		if (priceTotal.getText().equals(total.getText())) {
-			System.out.println("Success");
+	public boolean pricevalidation() {
+		boolean flag = false;
+		if (priceTotal.isDisplayed()) {
+			flag = true;
+
 		} else {
-			System.out.println("fail");
+			flag = false;
 		}
+		return flag;
 		
 	}
 

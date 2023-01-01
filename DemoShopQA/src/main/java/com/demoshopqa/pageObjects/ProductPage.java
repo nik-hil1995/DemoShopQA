@@ -24,8 +24,11 @@ public class ProductPage extends BaseClass {
 	@FindBy(xpath = "(//button[@type='submit'])[2]")
 	WebElement addToCartBtn;
 
-	@FindBy(css = ".cart-button")
+	@FindBy(css = ".button.wc-forward.wp-element-button")
 	WebElement cartBtn;
+
+	@FindBy(css = ".woocommerce-message")
+	WebElement alertMsg;
 
 	public ProductPage() {
 		PageFactory.initElements(driver, this);
@@ -39,6 +42,7 @@ public class ProductPage extends BaseClass {
 		select2.selectByValue(size);
 		QtyIncrease.click();
 		addToCartBtn.click();
+		alertMsg.isDisplayed();
 		act.clickToElement(driver, cartBtn);
 		return new CartPage();
 	}

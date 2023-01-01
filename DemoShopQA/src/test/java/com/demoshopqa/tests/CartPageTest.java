@@ -3,11 +3,13 @@
  */
 package com.demoshopqa.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.demoshopqa.baseTest.BaseClass;
+import com.demoshopqa.pageObjects.CartPage;
 import com.demoshopqa.pageObjects.IndexPage;
 import com.demoshopqa.pageObjects.ProductPage;
 import com.demoshopqa.pageObjects.SearchResultPage;
@@ -16,16 +18,18 @@ import com.demoshopqa.pageObjects.SearchResultPage;
  * @author NIkhil Kumar
  *
  */
-public class AddToCartTest extends BaseClass {
+public class CartPageTest extends BaseClass {
 
 	IndexPage indexpage;
-	SearchResultPage searchresultpage;
-	ProductPage productpage;
+	SearchResultPage searchResultPage;
+	ProductPage productPage;
+	CartPage cartpage;
+
 
 	@BeforeMethod
 	public void setup() {
 		LaunchApp();
-	}
+}
 
 	@AfterMethod
 	public void teardonw() {
@@ -34,11 +38,13 @@ public class AddToCartTest extends BaseClass {
 	}
 
 	@Test
-	public void VerifyAddtocart() throws InterruptedException {
+	public void verifythePrice() throws InterruptedException {
 		indexpage = new IndexPage();
-		searchresultpage = indexpage.searchProducts("shirt");
-		productpage = searchresultpage.addProduct(prop.getProperty("product_Name"));
-		productpage.addProductToCart("pink", "36");
+		searchResultPage = indexpage.searchProducts("shirt");
+		productPage = searchResultPage.addProduct(prop.getProperty("product_Name"));
+		cartpage = productPage.addProductToCart("pink", "36");
+		boolean result = cartpage.pricevalidation();
+		Assert.assertTrue(result);
 	}
 
 }
