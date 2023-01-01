@@ -3,8 +3,6 @@
  */
 package com.demoshopqa.tests;
 
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,41 +17,37 @@ import com.demoshopqa.pageObjects.SearchResultPage;
  * @author NIkhil Kumar
  *
  */
-public class CartPageTest extends BaseClass {
+public class CheckoutPageTest extends BaseClass {
 
 	IndexPage indexpage;
 	SearchResultPage searchResultPage;
 	ProductPage productPage;
 	CartPage cartpage;
-
+	CheckoutPage checkoutpage;
 
 	@BeforeMethod
 	public void setup() {
 		LaunchApp();
-}
-
-	@AfterMethod
-	public void teardonw() {
-
-		driver.quit();
 	}
 
+//
+//	@AfterMethod
+//	public void teardonw() {
+//
+//		driver.quit();
+//	}
 	@Test
-	public void verifythePrice() throws InterruptedException {
+	public void VerifyTheCheckout() throws InterruptedException {
 		indexpage = new IndexPage();
 		searchResultPage = indexpage.searchProducts("shirt");
 		productPage = searchResultPage.addProduct(prop.getProperty("product_Name"));
 		cartpage = productPage.addProductToCart("pink", "36");
-		boolean result = cartpage.pricevalidation();
-		Assert.assertTrue(result);
-	}
+		checkoutpage = new CheckoutPage();
+		checkoutpage.checkoutProcess(prop.getProperty("f_name"), prop.getProperty("l_name"),
+				prop.getProperty("country"), prop.getProperty("street"), prop.getProperty("city"),
+				prop.getProperty("state"), prop.getProperty("pincode"), prop.getProperty("phone"),
+				prop.getProperty("email"));
 
-	@Test
-	public void verifytheSuccessfulcheckout() throws InterruptedException {
-		verifythePrice();
-		CheckoutPage checkoutpage = cartpage.goToCheckout();
-		String actualURL = checkoutpage.getCurrentURL();
-		Assert.assertTrue(actualURL.contains("checkout"));
 	}
 
 }

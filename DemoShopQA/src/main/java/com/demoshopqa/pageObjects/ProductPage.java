@@ -30,6 +30,9 @@ public class ProductPage extends BaseClass {
 	@FindBy(css = ".woocommerce-message")
 	WebElement alertMsg;
 
+	@FindBy(xpath = "//div[@class='wc-proceed-to-checkout']//a")
+	WebElement checkoutbtn;
+
 	public ProductPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -44,6 +47,7 @@ public class ProductPage extends BaseClass {
 		addToCartBtn.click();
 		alertMsg.isDisplayed();
 		act.clickToElement(driver, cartBtn);
+		act.clickToElement(driver, checkoutbtn);
 		return new CartPage();
 	}
 

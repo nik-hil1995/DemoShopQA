@@ -67,36 +67,41 @@ public class CheckoutPage extends BaseClass {
 
 	public OrderConfirmationPage checkoutProcess(String f_Name, String l_name, String country, String street,
 			String city,
-			String state, String pin, String phonenum, String emailadd) {
+			String state, String pin, String phonenum, String emailadd) throws InterruptedException {
 		billing_first_name.sendKeys(f_Name);
 		billing_last_name.sendKeys(l_name);
 		countrydrpdwn.click();
 		searchCountry.sendKeys("ind");
-		act.implicitWait(driver);
         for (WebElement a : countrymatch) {
 			if (a.getText().equalsIgnoreCase(country)) {
 				a.click();
 			}
 		
 		}
+
 		houseNum.sendKeys(street);
 		billingCity.sendKeys(city);
-		billingState.click();
 		act.implicitWait(driver);
+		billingState.click();
 		searchState.sendKeys(state);
 		for (WebElement b : stateOptions) {
 			if (b.getText().equalsIgnoreCase(state)) {
 				b.click();
 			}
-
 			billingpincode.sendKeys(pin);
 			billingPhone.sendKeys(phonenum);
 			billingEmail.sendKeys(emailadd);
-			termsandcondn.click();
+
+			act.clickToElement(driver, termsandcondn);
 			PlaceOrderBtn.click();
 
 
 		}
 		return new OrderConfirmationPage();
 	}
+
+	public String getCurrentURL() {
+		return driver.getCurrentUrl();
+	}
+
 }
