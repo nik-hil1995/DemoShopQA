@@ -37,10 +37,10 @@ public class SearchResultPage extends BaseClass {
 	
 	
 	
-	public WebElement isProductAvailable(String productName) {
+	public WebElement isProductAvailable(String productName1) {
 		return products.stream()
 				.filter(product -> product.findElement(By.xpath("//div[@class='noo-product-inner']//h3"))
-				.getText().equals(productName)).findFirst().orElse(null);
+				.getText().equals(productName1)).findFirst().orElse(null);
 
 
 	}

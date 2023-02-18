@@ -1,7 +1,5 @@
 package com.demoshopqa.pageObjects;
 
-import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,9 +12,12 @@ public class CheckoutPage extends BaseClass {
 	public CheckoutPage() {
 		PageFactory.initElements(driver, this);
 	}
-
+    LoginPage loginpage;
+	
+	
+	
 	Actionable act = new Actionable();
-
+/*
 	@FindBy(css = "#billing_first_name")
 	WebElement billing_first_name;
 
@@ -56,14 +57,12 @@ public class CheckoutPage extends BaseClass {
 	@FindBy(css = "#billing_email")
 	WebElement billingEmail;
 
-	@FindBy(css = "#place_order")
-	WebElement PlaceOrderBtn;
-
+	
 	@FindBy(xpath = "//input[@name='terms-field']")
 	WebElement termsField;
 
-	@FindBy(css = ".woocommerce-terms-and-conditions-checkbox-text")
-	WebElement termsandcondn;
+	
+	
 
 	public OrderConfirmationPage checkoutProcess(String f_Name, String l_name, String country, String street,
 			String city,
@@ -98,6 +97,29 @@ public class CheckoutPage extends BaseClass {
 
 		}
 		return new OrderConfirmationPage();
+	}
+	
+	*/
+	
+	@FindBy(css = ".showlogin")
+	WebElement loginbtn;
+	
+	@FindBy(xpath = "//input[@type='checkbox']")
+	WebElement termsandcondn;
+	
+	@FindBy(css = "#place_order")
+	WebElement PlaceOrderBtn;
+
+
+	public OrderConfirmationPage checkoutAProduct() throws InterruptedException {
+	loginbtn.click();
+	loginpage=new LoginPage();
+	loginpage.loginToApp(prop.getProperty("UserEmail"), prop.getProperty("Password"));
+	Thread.sleep(6000);
+    termsandcondn.click();
+	PlaceOrderBtn.click();
+	
+	return new OrderConfirmationPage();
 	}
 
 	public String getCurrentURL() {

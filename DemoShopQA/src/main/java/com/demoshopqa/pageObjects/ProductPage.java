@@ -47,7 +47,7 @@ public class ProductPage extends BaseClass {
 		addToCartBtn.click();
 		alertMsg.isDisplayed();
 		act.clickToElement(driver, cartBtn);
-		act.clickToElement(driver, checkoutbtn);
+		//act.clickToElement(driver, checkoutbtn);
 		return new CartPage();
 	}
 

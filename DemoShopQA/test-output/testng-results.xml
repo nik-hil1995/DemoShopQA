@@ -2,24 +2,28 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-01T15:08:13 IST" name="Default suite" finished-at="2023-01-01T15:08:30 IST" duration-ms="16928">
+  <suite started-at="2023-02-18T23:53:05 IST" name="Default suite" finished-at="2023-02-18T23:53:36 IST" duration-ms="31490">
     <groups>
     </groups>
-    <test started-at="2023-01-01T15:08:13 IST" name="Default test" finished-at="2023-01-01T15:08:30 IST" duration-ms="16928">
-      <class name="com.demoshopqa.tests.CheckoutPageTest">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.demoshopqa.tests.CheckoutPageTest@6340e5f0]" started-at="2023-01-01T15:08:13 IST" name="loadConfig" finished-at="2023-01-01T15:08:13 IST" duration-ms="11" status="PASS">
+    <test started-at="2023-02-18T23:53:05 IST" name="Default test" finished-at="2023-02-18T23:53:36 IST" duration-ms="31490">
+      <class name="com.demoshopqa.tests.EndToEndtest">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.demoshopqa.tests.EndToEndtest@550dbc7a]" started-at="2023-02-18T23:53:05 IST" name="loadConfig" finished-at="2023-02-18T23:53:05 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.demoshopqa.tests.CheckoutPageTest@6340e5f0]" started-at="2023-01-01T15:08:13 IST" name="setup" finished-at="2023-01-01T15:08:18 IST" duration-ms="4971" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.demoshopqa.tests.EndToEndtest@550dbc7a]" started-at="2023-02-18T23:53:05 IST" name="setup" finished-at="2023-02-18T23:53:12 IST" duration-ms="7366" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="VerifyTheCheckout()[pri:0, instance:com.demoshopqa.tests.CheckoutPageTest@6340e5f0]" started-at="2023-01-01T15:08:18 IST" name="VerifyTheCheckout" finished-at="2023-01-01T15:08:30 IST" duration-ms="11916" status="PASS">
+        <test-method signature="EndtoEndTest()[pri:0, instance:com.demoshopqa.tests.EndToEndtest@550dbc7a]" started-at="2023-02-18T23:53:12 IST" name="EndtoEndTest" finished-at="2023-02-18T23:53:36 IST" duration-ms="23827" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyTheCheckout -->
-      </class> <!-- com.demoshopqa.tests.CheckoutPageTest -->
+        </test-method> <!-- EndtoEndTest -->
+        <test-method is-config="true" signature="teardonw()[pri:0, instance:com.demoshopqa.tests.EndToEndtest@550dbc7a]" started-at="2023-02-18T23:53:36 IST" name="teardonw" finished-at="2023-02-18T23:53:36 IST" duration-ms="270" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardonw -->
+      </class> <!-- com.demoshopqa.tests.EndToEndtest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
